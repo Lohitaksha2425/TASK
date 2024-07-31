@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>21BCE5501</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Revenue Analysis - 21BCE5501</h1>
+
+        {% if not file_uploaded %}
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Upload CSV file</label>
+                <input type="file" class="form-control" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Upload</button>
+        </form>
+        {% else %}
+        <div class="alert alert-info mt-4">
+            <strong>File uploaded successfully!</strong> If you want to upload a new file, please use the upload option below.
+        </div>
+        <form method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="file">Re-upload CSV file</label>
+                <input type="file" class="form-control" id="file" name="file" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Re-upload</button>
+        </form>
+        {% endif %}
+
+        {% if revenue_by_month %}
+        <h2 class="mt-4">Total Revenue by Month</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Month</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in revenue_by_month %}
+                <tr>
+                    <td>{{ row['Purchase Date'] }}</td>
+                    <td>${{ row['Revenue'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Total Revenue by Product</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in revenue_by_product %}
+                <tr>
+                    <td>{{ row['Item Name'] }}</td>
+                    <td>${{ row['Revenue'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Total Revenue by Customer</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in revenue_by_customer %}
+                <tr>
+                    <td>{{ row['Client ID'] }}</td>
+                    <td>${{ row['Revenue'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Top 10 Customers by Revenue</h2>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Customer ID</th>
+                    <th>Revenue</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in top_customers %}
+                <tr>
+                    <td>{{ row['Client ID'] }}</td>
+                    <td>${{ row['Revenue'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>
