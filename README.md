@@ -13,12 +13,12 @@ docker build -t 21bce5501_analysis .
 ## Tagging and Pushing the Docker Image
 
 DockerImage was tagged using the following command:
-
+This command was used to create a copy of the image with the name `lohitaksha2425/21bce5501_analysis:latest`, making it ready to be pushed into the Docker Hub.
 ```sh
 docker tag 21bce5501_analysis:latest lohitaksha2425/21bce5501_analysis:latest
 ```
 
-This command was used to create a copy of the image with the name `lohitaksha2425/21bce5501_analysis:latest`, making it ready to be pushed.
+
 
 DockerImage was pushed to the repository using the following command:
 
