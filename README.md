@@ -43,3 +43,11 @@ To download and run the Docker image for this Flask application, follow these st
 3. **Access the application**:
 
     Open a web browser and visit [http://127.0.0.1:5000/](http://127.0.0.1:5000/) to view the Flask application.
+
+---
+
+## Testing the Application
+
+To test the application, use the `test_orders.csv` file located in the `test` directory. Alternatively, any CSV file with the same column names can be used for testing.
+
+---
